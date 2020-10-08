@@ -27,20 +27,20 @@ var generatePassword = () => {
       characterPool += specialCharacters;
     }
 
-    if (characterPool.length === 0) {
-      alert("You must select at least one character set from the prompts be it Lowercase, Uppercase, Numbers or Special Characters.");
-      reload();
-    }
   } else {
     alert("Unacceptable! Length must be 8 or greater and less than 129.");
   }
 
   var password = '';
 
-  for (var c = 0; c < numCharacters; c++) {
-    var num = randomNumber(0, characterPool.length - 1);
-    var character = characterPool[num];
-    password += character;
+  if (characterPool.length === 0) {
+    alert("You must select at least one character set from the prompts be it Lowercase, Uppercase, Numbers or Special Characters.");
+  } else {
+    for (var c = 0; c < numCharacters; c++) {
+      var num = randomNumber(0, characterPool.length - 1);
+      var character = characterPool[num];
+      password += character;
+    }
   }
 
   return password;
