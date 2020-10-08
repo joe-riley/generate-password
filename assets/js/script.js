@@ -6,27 +6,30 @@ var upperCaseLetters = lowerCaseLetters.toUpperCase();
 var numbers = '1234567890';
 var specialCharacters = '~!@#$%^&*()_+{}|[]\\;\',./:"<>?"';
 
-var numCharacters;
-
 var generatePassword = () => {
-  numCharacters = prompt("How many characters long would you like your password to be?", "8");
-  if (numCharacters && numCharacters > 7 && numCharacters < 129) {
-    var characterPool = "";
+  var numCharacters = prompt("How many characters long would you like your password to be?", "8");
+  if (numCharacters && numCharacters >= 7 && numCharacters <= 128) {
+    var characterPool = '';
 
-    if (window.confirm("Should we allow lowercase characters?")) {
+    if (confirm("Should we allow lowercase characters?")) {
       characterPool += lowerCaseLetters;
     }
 
-    if (window.confirm("Should we allow uppercase characters?")) {
+    if (confirm("Should we allow uppercase characters?")) {
       characterPool += upperCaseLetters;
     }
 
-    if (window.confirm("Should we allow digits as characters?")) {
+    if (confirm("Should we allow digits as characters?")) {
       characterPool += numbers;
     }
     
-    if (window.confirm("Should we allow special symbols?")) {
+    if (confirm("Should we allow special symbols?")) {
       characterPool += specialCharacters;
+    }
+
+    if (characterPool.length === 0) {
+      alert("You must select at least one character set from the prompts be it Lowercase, Uppercase, Numbers or Special Characters.");
+      reload();
     }
   } else {
     alert("Unacceptable! Length must be 8 or greater and less than 129.");
@@ -53,7 +56,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
