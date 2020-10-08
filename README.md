@@ -1,6 +1,6 @@
 # generate-password
 
-### Go there now: [Generate Password](joe-riley.github.io/generate-password)
+### Go there now: [Generate Password](https://joe-riley.github.io/generate-password/)
 
 ## Description
 A simple, very unsecure, password generator that shows everything in plain text on your screen that uses browser modals to ask what kind of characters you want in the password.
