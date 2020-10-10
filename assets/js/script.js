@@ -6,7 +6,7 @@ var generatePassword = () => {
 
   var numCharacters = prompt("How many characters long would you like your password to be?", "8");
 
-  if (numCharacters && numCharacters >= 7 && numCharacters <= 128) {
+  if (numCharacters && numCharacters >= 8 && numCharacters <= 128) {
     var characterSets = [];
 
     if (confirm("Should we allow lowercase characters?")) {
