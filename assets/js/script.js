@@ -1,12 +1,10 @@
-
-// Assignment Code
+// A soution
 var generateBtn = document.querySelector("#generate");
 
 var generatePassword = () => {
-
   var numCharacters = prompt("How many characters long would you like your password to be?", "8");
 
-  if (numCharacters && numCharacters >= 8 && numCharacters <= 128) {
+  if (numCharacters && !Number.isNaN(numCharacters) && numCharacters >= 8 && numCharacters <= 128) {
     var characterSets = [];
 
     if (confirm("Should we allow lowercase characters?")) {
@@ -26,7 +24,7 @@ var generatePassword = () => {
     }
 
   } else {
-    alert("Unacceptable! Length must be 8 or greater and less than 129.");
+    alert("Unacceptable! Must be a number that is 8 or greater and less than 128.");
   }
 
   if (characterSets.length === 0) {
@@ -76,7 +74,6 @@ var randomNumber = (min, max) => {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
 
